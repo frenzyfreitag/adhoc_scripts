@@ -3,7 +3,7 @@ name: Enable automerge option if available
 on:
   pull_request:
     branches:
-      - main
+      - master
 jobs:
   enable-automerge:
     runs-on: ubuntu-latest
@@ -11,4 +11,4 @@ jobs:
       - name: Enable Pull Request Automerge
         run: gh pr merge --merge --auto "1"
         env:
-          GH_TOKEN: ${{ secrets.PAT }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}

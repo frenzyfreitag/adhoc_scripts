@@ -4,6 +4,10 @@ on:
   pull_request:
     branches:
       - master
+
+env:
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
 jobs:
   enable-automerge:
     runs-on: ubuntu-latest

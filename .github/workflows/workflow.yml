@@ -1,0 +1,18 @@
+---
+name: Check DNM
+on:
+  pull_request:
+    types:
+      - opened
+      - labeled
+      - unlabeled
+
+jobs:
+  check-for-DNM:
+    if: contains(github.event.pull_request.labels.*.name, 'do-not-merge')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fail if PR is DNM
+        run: |
+          echo "This PR has a DNM label."
+          exit 1
